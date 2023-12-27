@@ -1,13 +1,15 @@
 package org.but.feec.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.but.feec.api.BookBasicView;
 import org.but.feec.data.BookRepository;
 
@@ -22,6 +24,9 @@ public class BookStoreController {
 
     @FXML
     private TextField searchField;
+
+    @FXML
+    private Button SignInButton;
 
     @FXML
     public void initialize() {
@@ -61,27 +66,52 @@ public class BookStoreController {
         bookListVBox.getChildren().add(bookLabel);
     }
 
+
     private void showBookDetails(BookBasicView book) {
         try {
             // Load the FXML file for the book details window
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/BookDetails.fxml"));
             VBox bookDetails = loader.load();
 
-            // Get the controller to set the book details
+
             BookDetailsController controller = loader.getController();
             controller.initialize(book);
 
-            // Create a new stage for the book details window
+
             javafx.stage.Stage detailsStage = new javafx.stage.Stage();
             detailsStage.setTitle("Book Details");
 
-            // Set the scene for the book details window
+
             javafx.scene.Scene scene = new javafx.scene.Scene(bookDetails);
             detailsStage.setScene(scene);
 
-            // Show the book details window
+
             detailsStage.show();
         } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
+    }
+
+    public void loadSignIn(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/SignIn.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage
+            Stage signInStage = new Stage();
+            signInStage.setTitle("Sign In"); // Set the title of the new window
+
+            // Set the scene with the loaded FXML content
+            signInStage.setScene(new Scene(root));
+
+            // Show the new stage
+            signInStage.show();
+
+            // If you want to close the current window on button click, you can do the following
+            // ((Node)(event.getSource())).getScene().getWindow().hide();
+
+        } catch (Exception e) {
             e.printStackTrace(); // Handle the exception appropriately
         }
     }

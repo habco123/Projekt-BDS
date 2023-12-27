@@ -2,6 +2,7 @@ org\but\feec\App.class
 org\but\feec\controllers\BookDetailsController.class
 org\but\feec\controllers\EnterController.class
 org\but\feec\data\BookRepository.class
+org\but\feec\controllers\SignInController.class
 org\but\feec\data\CustomerRepository.class
 org\but\feec\config\DataSourceConfig.class
 org\but\feec\Main.class

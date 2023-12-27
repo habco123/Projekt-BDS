@@ -24,7 +24,7 @@ public class EnterController {
 
             // Create a new stage for the next window
             Stage nextStage = new Stage();
-            nextStage.setTitle("Next Window");
+            nextStage.setTitle("BookStore");
 
             // Set the scene for the next window
             Scene scene = new Scene(nextWindow);

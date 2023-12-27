@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0993110-b9b9-4b24-aef6-a347712557e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/SignInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/but/feec/fxml/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/BookStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/BookStoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/EnterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/EnterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/but/feec/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/but/feec/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/but/feec/fxml/BookStore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/but/feec/fxml/BookStore.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bds-app-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/bds-app-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/BookStoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/BookStoreController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/EnterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/EnterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/fxml/BookStore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/fxml/BookStore.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-bds-app-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-bds-app-1.0.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +45,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.database.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.database.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\247374\IdeaProjects\bds_app\src\main\resources\org\but\feec\logos" />
