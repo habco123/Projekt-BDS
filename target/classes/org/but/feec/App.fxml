@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import java.awt.Image?>
+<?import javafx.scene.image.ImageView?>
+<VBox minHeight="625.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.controllers.EnterController">
+    <stylesheets>
+        <URL value="@css/styles.css" />
+    </stylesheets>
+    <children>
+        <Pane prefHeight="538.0" prefWidth="950.0">
+            <children>
+                <Button fx:id="enterButton" layoutX="432.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleEnterButton" text="Enter">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Label layoutX="327.0" layoutY="256.0" text="Welcome to the online bookstore">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</VBox>
