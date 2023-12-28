@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.but.feec.controllers.SignInController;
+import org.but.feec.data.CustomerRepository;
 import org.but.feec.exceptions.ExceptionHandler;
+import org.but.feec.services.AuthService;
 
 
 import javax.swing.*;

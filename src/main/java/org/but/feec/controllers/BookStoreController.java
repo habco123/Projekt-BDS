@@ -66,7 +66,6 @@ public class BookStoreController {
         bookListVBox.getChildren().add(bookLabel);
     }
 
-
     private void showBookDetails(BookBasicView book) {
         try {
             // Load the FXML file for the book details window
@@ -98,11 +97,11 @@ public class BookStoreController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/SignIn.fxml"));
             Parent root = loader.load();
 
-            // Create a new stage
-            Stage signInStage = new Stage();
-            signInStage.setTitle("Sign In"); // Set the title of the new window
 
-            // Set the scene with the loaded FXML content
+            Stage signInStage = new Stage();
+            signInStage.setTitle("Sign In");
+
+
             signInStage.setScene(new Scene(root));
 
             // Show the new stage

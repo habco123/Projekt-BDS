@@ -1,8 +1,15 @@
 package org.but.feec.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.but.feec.api.BookBasicView;
+
+import java.io.IOException;
 
 public class BookDetailsController {
 
@@ -31,7 +38,6 @@ public class BookDetailsController {
     private Label releaseYearLabel;
 
     public void initialize(BookBasicView book) {
-        // Populate the detailed information based on the selected book
         titleLabel.setText(book.getBook_name());
         genreLabel.setText("Genre: " + book.getGenre());
         publisherLabel.setText("Publisher: " + book.getPublisher());
@@ -40,6 +46,29 @@ public class BookDetailsController {
         pagesLabel.setText("Number of Pages: " + book.getNum_of_pages());
         isbnLabel.setText("ISBN: " + book.getIsbn());
         releaseYearLabel.setText("Release Year: " + book.getRelease_year());
-        // Set other properties based on the BookBasicView object
+    }
+
+    @FXML
+    private void handleBuyButton(ActionEvent event) {
+        showPurchaseConfirmation();
+    }
+
+    private void showPurchaseConfirmation() {
+        try {
+            // Load the FXML file for the purchase confirmation window
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/PurchaseConfirmation.fxml"));
+            VBox purchaseConfirmation = loader.load();
+
+            // Create a new stage for the purchase confirmation window
+            Stage purchaseConfirmationStage = new Stage();
+            purchaseConfirmationStage.setTitle("Purchase Confirmation");
+
+            Scene scene = new Scene(purchaseConfirmation);
+            purchaseConfirmationStage.setScene(scene);
+
+            purchaseConfirmationStage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
     }
 }
