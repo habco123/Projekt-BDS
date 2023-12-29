@@ -21,20 +21,19 @@ public class BookStoreController {
 
     @FXML
     private VBox bookListVBox;
-
     @FXML
     private TextField searchField;
-
     @FXML
     private Button SignInButton;
+    private SignInController signInController;
 
     @FXML
     public void initialize() {
-        // Load book data from the database
+
         BookRepository bookRepository = new BookRepository();
         List<BookBasicView> books = bookRepository.getBookBasicView();
 
-        // Populate the VBox with book names
+
         for (BookBasicView book : books) {
             addBookLabel(book);
         }
@@ -93,23 +92,18 @@ public class BookStoreController {
 
     public void loadSignIn(ActionEvent actionEvent) {
         try {
-            // Load the FXML file
+                // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/SignIn.fxml"));
             Parent root = loader.load();
 
-
             Stage signInStage = new Stage();
             signInStage.setTitle("Sign In");
-
-
             signInStage.setScene(new Scene(root));
 
-            // Show the new stage
-            signInStage.show();
 
-            // If you want to close the current window on button click, you can do the following
-            // ((Node)(event.getSource())).getScene().getWindow().hide();
+            signInController = loader.getController();
 
+            signInStage.showAndWait();
         } catch (Exception e) {
             e.printStackTrace(); // Handle the exception appropriately
         }

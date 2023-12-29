@@ -39,6 +39,8 @@ public class SignInController {
     @FXML CustomerRepository customerRepository;
 
 
+
+
     @FXML
     private void initialize(){
         customerRepository = new CustomerRepository();
@@ -79,6 +81,7 @@ public class SignInController {
     private void showPersonsView() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/Acc.fxml"));
+
             VBox userProfile = loader.load();
             AccController controller = loader.getController();
             javafx.stage.Stage profileStage = new javafx.stage.Stage();
