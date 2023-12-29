@@ -3,6 +3,7 @@ org\but\feec\controllers\CreateAccountController$1.class
 org\but\feec\services\AuthService.class
 org\but\feec\controllers\AccController.class
 org\but\feec\exceptions\ResourceNotFoundException.class
+org\but\feec\controllers\CreateInfoController.class
 org\but\feec\exceptions\ExceptionHandler.class
 org\but\feec\controllers\SignInController$1.class
 org\but\feec\api\UserCreateView.class

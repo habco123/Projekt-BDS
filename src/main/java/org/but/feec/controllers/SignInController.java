@@ -81,18 +81,22 @@ public class SignInController {
     private void showPersonsView() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/Acc.fxml"));
-
             VBox userProfile = loader.load();
+
             AccController controller = loader.getController();
-            javafx.stage.Stage profileStage = new javafx.stage.Stage();
+
+            controller.setUsername(usernameField.getText());
+
+
+            Stage profileStage = new Stage();
             profileStage.setTitle("Profile");
-            javafx.scene.Scene scene = new javafx.scene.Scene(userProfile);
+            Scene scene = new Scene(userProfile);
 
             profileStage.setScene(scene);
 
             profileStage.show();
-
         } catch (IOException ex) {
+            ex.printStackTrace();  // Print the exception details to the console
             ExceptionHandler.handleException(ex);
         }
     }

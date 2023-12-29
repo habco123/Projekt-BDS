@@ -29,7 +29,6 @@ public class BookStoreController {
 
     @FXML
     public void initialize() {
-
         BookRepository bookRepository = new BookRepository();
         List<BookBasicView> books = bookRepository.getBookBasicView();
 

@@ -15,7 +15,7 @@ public class UserService {
 
     public UserService(CustomerRepository customerRepository){this.customerRepository = customerRepository; }
 
-    public List<CustomerBasicView> getCustomerBasicView (){
+    public List<CustomerBasicView> getCustomerBasicView(){
         return customerRepository.getCustomerBasicView();
     }
 

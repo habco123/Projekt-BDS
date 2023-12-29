@@ -22,18 +22,14 @@ public class EnterController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/BookStore.fxml"));
             Parent nextWindow = loader.load();
 
-            // Create a new stage for the next window
             Stage nextStage = new Stage();
             nextStage.setTitle("BookStore");
 
-            // Set the scene for the next window
             Scene scene = new Scene(nextWindow);
             nextStage.setScene(scene);
 
-            // Show the next window
             nextStage.show();
 
-            // Close the current window (if needed)
             Stage currentStage = (Stage) enterButton.getScene().getWindow();
             currentStage.close();
 

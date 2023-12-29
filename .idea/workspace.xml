@@ -5,19 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0993110-b9b9-4b24-aef6-a347712557e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/CreateInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/but/feec/fxml/CreateInfo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/api/CustomerBasicView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/api/CustomerBasicView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/bds-java-logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/bds-java-logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/AccController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/AccController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/BookStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/BookStoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/EnterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/EnterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/controllers/SignInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/data/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/data/CustomerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/but/feec/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/but/feec/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/but/feec/fxml/Acc.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/but/feec/fxml/Acc.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/bds-app-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/bds-app-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/AccController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/AccController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/BookStoreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/BookStoreController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/EnterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/EnterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/SignInController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/SignInController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/controllers/SignInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/data/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/data/CustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/but/feec/fxml/Acc.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/but/feec/fxml/Acc.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-bds-app-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-bds-app-1.0.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
