@@ -22,7 +22,8 @@
         </VBox>
 
         <VBox spacing="10">
-            <Button onAction="#insertData" text="Insert Data" />
+            <Button fx:id="saveButton" onAction="#insertData" text="Insert Data" />
+            <Button fx:id="cartButton" onAction="#showCart" text="Cart" />
         </VBox>
     </HBox>
 

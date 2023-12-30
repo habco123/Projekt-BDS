@@ -13,12 +13,17 @@ public class UserService {
 
     private CustomerRepository customerRepository;
 
-    public UserService(CustomerRepository customerRepository){this.customerRepository = customerRepository; }
+    private static String username;
 
-    public List<CustomerBasicView> getCustomerBasicView(){
-        return customerRepository.getCustomerBasicView();
+    public static String getUsername() {
+        return username;
     }
 
+    public static void setUsername(String username) {
+        UserService.username = username;
+    }
+
+    public UserService(CustomerRepository customerRepository){this.customerRepository = customerRepository; }
 
     public void createUser(UserCreateView userCreateView){
 

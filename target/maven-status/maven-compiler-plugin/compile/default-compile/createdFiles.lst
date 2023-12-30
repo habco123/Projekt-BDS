@@ -5,13 +5,16 @@ org\but\feec\controllers\AccController.class
 org\but\feec\exceptions\ResourceNotFoundException.class
 org\but\feec\controllers\CreateInfoController.class
 org\but\feec\exceptions\ExceptionHandler.class
+org\but\feec\api\OrderView.class
 org\but\feec\controllers\SignInController$1.class
+org\but\feec\controllers\CartController.class
 org\but\feec\api\UserCreateView.class
 org\but\feec\services\Argon2FactoryService.class
 org\but\feec\App.class
 org\but\feec\controllers\BookDetailsController.class
 org\but\feec\controllers\EnterController.class
 org\but\feec\data\BookRepository.class
+org\but\feec\data\OrderRepository.class
 org\but\feec\data\CustomerRepository.class
 org\but\feec\config\DataSourceConfig.class
 org\but\feec\exceptions\DataAccessException.class

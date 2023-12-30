@@ -47,7 +47,7 @@
                    </ImageView>
                </children>
             </AnchorPane>
-            <Button fx:id="SignInButton" layoutX="64.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadSignIn" text="Sign In" />
+            <Button  fx:id="signInButton" layoutX="64.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadSignIn" text="Sign In" />
             </children>
         </Pane>
     </children>

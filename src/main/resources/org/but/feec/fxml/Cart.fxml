@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox minHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.controllers.CartController">
+    <children>
+        <ListView fx:id="cartListView"/>
+        <Button text="Buy" fx:id="buyButton" onAction="#buyBooks"/>
+    </children>
+</VBox>

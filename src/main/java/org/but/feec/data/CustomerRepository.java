@@ -54,7 +54,7 @@ public class CustomerRepository {
                 }
             }
         } catch (SQLException e) {
-            // Handle the exception, log it, or show an error message to the user
+
             e.printStackTrace();
         }
         return null;
@@ -73,8 +73,6 @@ public class CustomerRepository {
         customerBasicView.setStreet_num(rs.getLong("street_num"));
         customerBasicView.setTelephone(rs.getLong("telephone"));
         customerBasicView.setStreet(rs.getString("street"));
-
-        System.out.println("Hello!!!");
 
         return customerBasicView;
     }
@@ -97,6 +95,58 @@ public class CustomerRepository {
         }
 
     }
+
+    public void insertAddress(String street, int streetNum, int postalCode, int houseNum, String city, String country, String username){
+        String insertAdressSql = "WITH customer_info AS (" +
+                "  SELECT customer_id FROM bds.customer" +
+                "  WHERE username = ?" +
+                ")," +
+                "new_city AS (" +
+                "  INSERT INTO bds.city (city_name)" +
+                "  SELECT ? " + //city_name
+                "  WHERE NOT EXISTS (SELECT 1 FROM bds.city WHERE city_name = ?)" + //city_name
+                "  RETURNING city_id" +
+                ")," +
+                "new_country AS (" +
+                "  INSERT INTO bds.country (country_name)" +
+                "  SELECT ? " + //country_name
+                "  WHERE NOT EXISTS (SELECT 1 FROM bds.country WHERE country_name = ?)" + //country_name
+                "  RETURNING country_id" +
+                ")" +
+                "INSERT INTO bds.address (customer_id, city_id, country_id, street, street_num, house_num, postal_code)" +
+                "SELECT" +
+                "  (SELECT customer_id FROM customer_info)," +
+                "  COALESCE((SELECT city_id FROM bds.city WHERE city_name = ?), (SELECT city_id FROM new_city))," + //city-name
+                "  COALESCE((SELECT country_id FROM bds.country WHERE country_name = ?), (SELECT country_id FROM new_country))," + //country_name
+                "  ?," + //street
+                "  ?," + //streetNum
+                "  ?," + //houseNum
+                "  ?;"; //PSC
+        try(Connection connection = DataSourceConfig.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertAdressSql, Statement.RETURN_GENERATED_KEYS)){
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, city);
+            preparedStatement.setString(3, city);
+            preparedStatement.setString(4, country);
+            preparedStatement.setString(5, country);
+            preparedStatement.setString(6, city);
+            preparedStatement.setString(7, country);
+            preparedStatement.setString(8, street);
+            preparedStatement.setInt(9, streetNum);
+            preparedStatement.setInt(10, houseNum);
+            preparedStatement.setInt(11, postalCode);
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if(affectedRows == 0){
+                throw new DataAccessException("Creating person failed, no rows affected.");
+            }
+
+        }catch (SQLException e){
+            throw new DataAccessException("Creating person failed operation on the database failed.");
+        }
+    }
+
 
     public void insertContact(String email, int telephone, String username) {
         String insertContactSql = "INSERT INTO bds.contact (email, telephone, customer_id)" +
@@ -188,7 +238,6 @@ public class CustomerRepository {
         customerBasicView.setStreet_num(rs.getLong("street_num"));
         customerBasicView.setTelephone(rs.getLong("telephone"));
         customerBasicView.setStreet(rs.getString("street"));
-
 
         return customerBasicView;
     }

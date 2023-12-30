@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.but.feec.data.CustomerRepository;
 import org.but.feec.services.AuthService;
+import org.but.feec.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,21 +25,29 @@ import java.util.Optional;
 public class SignInController {
 
     private static final Logger logger = LoggerFactory.getLogger(SignInController.class);
-
     @FXML
     private TextField usernameField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Button signInButton;
-
     @FXML
     private AuthService authService;
     @FXML CustomerRepository customerRepository;
+    private String username;
+    private BookStoreController bookStoreController;
 
 
+    public void setBookStoreController(BookStoreController bookStoreController) {
+        this.bookStoreController = bookStoreController;
+    }
+    private boolean isAuth = false;
+
+    public String getUsername(){return username; }
+
+    public boolean getIsAuth() {
+        return isAuth;
+    }
 
 
     @FXML
@@ -53,13 +62,15 @@ public class SignInController {
 
     @FXML
     private void handleSignIn() {
-        String username = usernameField.getText();
+        username = usernameField.getText();
         String password = passwordField.getText();
 
         try {
             boolean authenticated = authService.authenticate(username, password);
             if (authenticated) {
-                showPersonsView();
+                showAccView();
+                authConfirmDialog();
+                isAuth = true;
             } else {
                 showInvalidPaswordDialog();
             }
@@ -78,15 +89,17 @@ public class SignInController {
         alert.showAndWait();
     }
 
-    private void showPersonsView() {
+    public void showAccView() {
         try {
+            if (bookStoreController != null) {
+                bookStoreController.handleAuthenticationSuccess();
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/Acc.fxml"));
             VBox userProfile = loader.load();
 
             AccController controller = loader.getController();
 
-            controller.setUsername(usernameField.getText());
-
+            controller.setUsername(username);
 
             Stage profileStage = new Stage();
             profileStage.setTitle("Profile");
@@ -95,6 +108,8 @@ public class SignInController {
             profileStage.setScene(scene);
 
             profileStage.show();
+
+
         } catch (IOException ex) {
             ex.printStackTrace();  // Print the exception details to the console
             ExceptionHandler.handleException(ex);
@@ -145,6 +160,4 @@ public class SignInController {
             System.out.println("cancel clicked");
         }
     }
-
-
 }

@@ -26,6 +26,7 @@ public class BookRepository {
                      "    b.release_year, " +
                      "    b.intro, " +
                      "    b.num_pages, " +
+                     "    b.price," +
                      "    bq.num_of_book " +
                      "FROM " +
                      "    bds.book_has_author bha " +
@@ -52,7 +53,6 @@ public class BookRepository {
         }
         return null;
     }
-
     private BookBasicView mapToBookBasicView(ResultSet rs) throws SQLException{
         BookBasicView bookBasicView = new BookBasicView();
         bookBasicView.setId(rs.getLong("book_id"));
@@ -65,9 +65,9 @@ public class BookRepository {
         bookBasicView.setPublisher(rs.getString("publisher_name"));
         bookBasicView.setRelease_year(rs.getString("release_year"));
         bookBasicView.setNum_of_pages(rs.getInt("num_pages"));
+        bookBasicView.setPrice(rs.getLong("price"));
         return bookBasicView;
     }
-
 }
 
 

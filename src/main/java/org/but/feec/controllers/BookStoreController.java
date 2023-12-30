@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.but.feec.api.BookBasicView;
 import org.but.feec.data.BookRepository;
+import org.but.feec.exceptions.ExceptionHandler;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,19 +25,26 @@ public class BookStoreController {
     @FXML
     private TextField searchField;
     @FXML
-    private Button SignInButton;
+    private Button signInButton;
+    @FXML
+    private Button profileButton;
+    @FXML
     private SignInController signInController;
+    @FXML
+    private AccController accController;
+
 
     @FXML
     public void initialize() {
         BookRepository bookRepository = new BookRepository();
         List<BookBasicView> books = bookRepository.getBookBasicView();
 
-
         for (BookBasicView book : books) {
             addBookLabel(book);
         }
     }
+
+
 
     @FXML
     private void searchBooks() {
@@ -72,7 +80,9 @@ public class BookStoreController {
 
 
             BookDetailsController controller = loader.getController();
-            controller.initialize(book);
+            controller.initialize(book, signInController);
+
+            System.out.println("SignInController in BookDetailsController: " + controller.getSignInController());
 
 
             javafx.stage.Stage detailsStage = new javafx.stage.Stage();
@@ -89,22 +99,40 @@ public class BookStoreController {
         }
     }
 
-    public void loadSignIn(ActionEvent actionEvent) {
+
+
+
+    @FXML
+    private void loadSignIn(ActionEvent event){
+        handleSignIn();
+    }
+
+    private void handleSignIn() {
         try {
-                // Load the FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/SignIn.fxml"));
-            Parent root = loader.load();
+            if (signInController != null && signInController.getIsAuth()) {
+                signInController.showAccView();
+            } else {
+                // If not authenticated, show the sign-in window
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/SignIn.fxml"));
+                Parent root = loader.load();
 
-            Stage signInStage = new Stage();
-            signInStage.setTitle("Sign In");
-            signInStage.setScene(new Scene(root));
+                signInController = loader.getController();
+                signInController.setBookStoreController(this);
 
+                Stage signInStage = new Stage();
+                signInStage.setTitle("Sign In");
+                signInStage.setScene(new Scene(root));
 
-            signInController = loader.getController();
-
-            signInStage.showAndWait();
+                signInStage.showAndWait();
+            }
         } catch (Exception e) {
-            e.printStackTrace(); // Handle the exception appropriately
+            e.printStackTrace();
         }
     }
+
+    public void handleAuthenticationSuccess() {
+        // Change the button text or perform any other actions
+        signInButton.setText("Profile");
+    }
 }
+

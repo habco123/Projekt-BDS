@@ -16,9 +16,12 @@ public class BookBasicView {
     private LongProperty num_of_pages = new SimpleLongProperty();
     private LongProperty isbn = new SimpleLongProperty();
     private StringProperty release_year = new SimpleStringProperty();
-    public long getId() {
-        return id.get();
-    }
+    private LongProperty price = new SimpleLongProperty();
+
+    public LongProperty priceProperty(){return price; }
+    public long getPrice(){return price.get(); }
+    public void setPrice(Long price){this.price.set(price);}
+    public long getId() { return id.get();}
     public void setId(long id) {
         this.id.set(id);
     }

@@ -5,7 +5,9 @@
 
 <VBox minHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.controllers.BookDetailsController">
     <children>
+
         <Label fx:id="titleLabel" text="Book Details" />
+        <Label fx:id="idLabel" />
         <Label fx:id="genreLabel" />
         <Label fx:id="publisherLabel" />
         <Label fx:id="introLabel" />
@@ -13,6 +15,8 @@
         <Label fx:id="pagesLabel" />
         <Label fx:id="isbnLabel" />
         <Label fx:id="releaseYearLabel" />
-        <Button fx:id="BuyButton" onAction="#handleBuyButton" />
+        <Label fx:id="priceLabel" />
+
+        <Button text="Buy" fx:id="buyButton" onAction="#buyBook"/>
     </children>
 </VBox>
