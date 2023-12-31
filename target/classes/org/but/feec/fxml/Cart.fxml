@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.controllers.CartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" fx:controller="org.but.feec.controllers.CartController" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <ListView fx:id="cartListView"/>
-        <Button text="Buy" fx:id="buyButton" onAction="#buyBooks"/>
+        <ScrollPane fx:id="orderScrollPane" layoutX="275.0" layoutY="166.0" prefHeight="600.0" prefWidth="800.0">
+            <content>
+                <VBox fx:id="orderListVBox" alignment="CENTER_LEFT" spacing="10">
+
+                </VBox>
+            </content>
+        </ScrollPane>
     </children>
-</VBox>
+</AnchorPane>

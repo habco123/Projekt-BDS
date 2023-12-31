@@ -1,0 +1,54 @@
+9807 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+8556 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+46386 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+63976 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+72447 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+85589 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+4428 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+12399 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+4853 [JavaFX Application Thread] INFO  o.b.f.c.CreateAccountController - PersonCreateController initialized
+1444 [main] ERROR o.but.feec.config.DataSourceConfig - Could not connect to the database.
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Invalid sslmode value: verifyca
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at org.but.feec.config.DataSourceConfig.initializeDataSource(DataSourceConfig.java:54)
+	at org.but.feec.config.DataSourceConfig.initializeDataSource(DataSourceConfig.java:31)
+	at org.but.feec.Main.main(Main.java:9)
+Caused by: org.postgresql.util.PSQLException: Invalid sslmode value: verifyca
+	at org.postgresql.jdbc.SslMode.of(SslMode.java:78)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:214)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	... 5 common frames omitted
+1458 [main] ERROR o.but.feec.config.DataSourceConfig - Could not connect to the database.
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: The server does not support SSL.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at org.but.feec.config.DataSourceConfig.initializeDataSource(DataSourceConfig.java:54)
+	at org.but.feec.config.DataSourceConfig.initializeDataSource(DataSourceConfig.java:31)
+	at org.but.feec.Main.main(Main.java:9)
+Caused by: org.postgresql.util.PSQLException: The server does not support SSL.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.enableSSL(ConnectionFactoryImpl.java:610)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:191)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	... 5 common frames omitted

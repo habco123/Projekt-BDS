@@ -15,6 +15,70 @@ import java.util.List;
 public class CustomerRepository {
 
 
+    public void updateContact(String email, int telephone, String username){
+        String insertContactSql = "UPDATE bds.contact" +
+                " SET email = ?," +
+                " telephone = ?" +
+                " WHERE customer_id = (SELECT customer_id FROM bds.customer WHERE username = ?);";
+        try(Connection connection = DataSourceConfig.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertContactSql, Statement.RETURN_GENERATED_KEYS)){
+            preparedStatement.setString(1, email);
+            preparedStatement.setInt(2, telephone);
+            preparedStatement.setString(3, username);
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if(affectedRows == 0){
+                throw new DataAccessException("Updating contact failed, no rows affected.");
+            }
+        }catch (SQLException e){
+            throw new DataAccessException("Updating contact failed operation on the database failed.");
+        }
+    }
+
+    public void updateAddress(String street, int streetNum, int postalCode, int houseNum, String city, String country, String username) {
+        String updateAddressSql =
+                "WITH customer_info AS (" +
+                        "    SELECT customer_id FROM bds.customer WHERE username = ?" +
+                        ")" +
+                        "UPDATE bds.address SET" +
+                        "    street = ?," +
+                        "    street_num = ?," +
+                        "    house_num = ?," +
+                        "    postal_code = ?," +
+                        "    city_id = COALESCE(" +
+                        "        (SELECT city_id FROM bds.city WHERE city_name = ?)," +
+                        "        (SELECT a.city_id FROM bds.address a WHERE a.customer_id = (SELECT customer_id FROM customer_info))" +
+                        "    )," +
+                        "    country_id = COALESCE(" +
+                        "        (SELECT country_id FROM bds.country WHERE country_name = ?)," +
+                        "        (SELECT country_id FROM bds.address a WHERE a.customer_id = (SELECT customer_id FROM customer_info))" +
+                        "    )" +
+                        "WHERE customer_id = (SELECT customer_id FROM customer_info);";
+
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(updateAddressSql, Statement.RETURN_GENERATED_KEYS)) {
+
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, street);
+            preparedStatement.setInt(3, streetNum);
+            preparedStatement.setInt(4, houseNum);
+            preparedStatement.setInt(5, postalCode);
+            preparedStatement.setString(6, city);
+            preparedStatement.setString(7, country);
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new DataAccessException("Updating address failed, no rows affected.");
+            }
+
+        } catch (SQLException e) {
+            throw new DataAccessException("Updating address failed, operation on the database failed.", e);
+        }
+    }
+
+
     public List<CustomerBasicView> getCustomerBasicView(){
         try(Connection connection = DataSourceConfig.getDataSource().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT bds.customer.customer_id, first_name, last_name, street, postal_code, house_num, street_num, telephone, email, city_name, country_name" +
@@ -139,11 +203,11 @@ public class CustomerRepository {
             int affectedRows = preparedStatement.executeUpdate();
 
             if(affectedRows == 0){
-                throw new DataAccessException("Creating person failed, no rows affected.");
+                throw new DataAccessException("Creating address failed, no rows affected.");
             }
 
         }catch (SQLException e){
-            throw new DataAccessException("Creating person failed operation on the database failed.");
+            throw new DataAccessException("Creating address failed operation on the database failed.");
         }
     }
 
@@ -167,10 +231,10 @@ public class CustomerRepository {
             int affectedRows = preparedStatement.executeUpdate();
 
             if(affectedRows == 0){
-                throw new DataAccessException("Creating person failed, no rows affected.");
+                throw new DataAccessException("Creating contact failed, no rows affected.");
             }
         }catch (SQLException e){
-            throw new DataAccessException("Creating person failed operation on the database failed.");
+            throw new DataAccessException("Creating contact failed operation on the database failed.");
         }
     }
 

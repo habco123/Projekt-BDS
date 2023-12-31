@@ -98,7 +98,6 @@ public class SignInController {
             VBox userProfile = loader.load();
 
             AccController controller = loader.getController();
-
             controller.setUsername(username);
 
             Stage profileStage = new Stage();

@@ -5,6 +5,8 @@ import org.but.feec.config.DataSourceConfig;
 import org.but.feec.exceptions.DataAccessException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderRepository {
 
@@ -66,6 +68,49 @@ public class OrderRepository {
         }catch (SQLException e){
             throw new DataAccessException("Creating person failed operation on the database failed.");
         }
+    }
+
+    public List<OrderView> getOrdersByUsername(String username) {
+
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT " +
+                             "o.order_id, o.customer_id, o.dest_addres_id, b.book_name, " +
+                             "o.shipping_method_id, o.order_status_id, o.price, o.time_of_order, " +
+                             "c.first_name, c.last_name, c.username, " +
+                             "a.street, a.city_id, a.country_id, " +
+                             "s.shiping_name " +
+                             "FROM bds.order o " +
+                             "JOIN bds.customer c ON o.customer_id = c.customer_id " +
+                             "JOIN bds.address a ON o.dest_addres_id = a.address_id " +
+                             "JOIN bds.shipping s ON o.shipping_method_id = s.shipping_method_id " +
+                             "JOIN bds.book b ON o.book_id = b.book_id " +
+                             "WHERE c.username = ?")) {
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<OrderView> orderViews = new ArrayList<>();
+            while (resultSet.next()) {
+                orderViews.add(mapToOrderBasicView(resultSet));
+            }
+            return orderViews;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    private OrderView mapToOrderBasicView(ResultSet rs) throws SQLException{
+        OrderView orderView = new OrderView();
+        orderView.setCustomerId(rs.getLong("customer_id"));
+        orderView.setOrderId(rs.getLong("order_id"));
+        orderView.setBookName(rs.getString("book_name"));
+        orderView.setTimeOfOrder(rs.getString("time_of_order"));
+        orderView.setPrice(rs.getLong("price"));
+        orderView.setShipping(rs.getString("shiping_name"));
+
+
+        return orderView;
     }
 
 }

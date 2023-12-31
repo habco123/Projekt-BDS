@@ -78,16 +78,11 @@ public class BookStoreController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/but/feec/fxml/BookDetails.fxml"));
             VBox bookDetails = loader.load();
 
-
             BookDetailsController controller = loader.getController();
             controller.initialize(book, signInController);
 
-            System.out.println("SignInController in BookDetailsController: " + controller.getSignInController());
-
-
             javafx.stage.Stage detailsStage = new javafx.stage.Stage();
             detailsStage.setTitle("Book Details");
-
 
             javafx.scene.Scene scene = new javafx.scene.Scene(bookDetails);
             detailsStage.setScene(scene);
@@ -131,7 +126,6 @@ public class BookStoreController {
     }
 
     public void handleAuthenticationSuccess() {
-        // Change the button text or perform any other actions
         signInButton.setText("Profile");
     }
 }

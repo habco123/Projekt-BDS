@@ -5,13 +5,41 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.List;
+
 public class OrderView {
+    private LongProperty orderId = new SimpleLongProperty();
     private LongProperty customerId = new SimpleLongProperty();
-    private StringProperty book_id = new SimpleStringProperty();
+    private StringProperty book_name = new SimpleStringProperty();
     private LongProperty price = new SimpleLongProperty();
     private StringProperty shipping = new SimpleStringProperty();
     private StringProperty orderStatus = new SimpleStringProperty();
+    private StringProperty timeOfOrder = new SimpleStringProperty();
 
+
+    public long getOrderId() {
+        return orderId.get();
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId.set(orderId);
+    }
+
+    public LongProperty orderIdProperty() {
+        return orderId;
+    }
+
+    public String getTimeOfOrder() {
+        return timeOfOrder.get();
+    }
+
+    public void setTimeOfOrder(String timeOfOrder) {
+        this.timeOfOrder.set(timeOfOrder);
+    }
+
+    public StringProperty timeOfOrderProperty() {
+        return timeOfOrder;
+    }
 
     public long getCustomerId() {
         return customerId.get();
@@ -26,16 +54,16 @@ public class OrderView {
     }
 
 
-    public String getBookId() {
-        return book_id.get();
+    public String getBookName() {
+        return book_name.get();
     }
 
-    public void setBookId(String bookId) {
-        this.book_id.set(bookId);
+    public void setBookName(String bookName) {
+        this.book_name.set(bookName);
     }
 
-    public StringProperty bookIdProperty() {
-        return book_id;
+    public StringProperty bookNameProperty() {
+        return book_name;
     }
 
 

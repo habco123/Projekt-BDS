@@ -57,7 +57,6 @@ public class BookDetailsController {
     public void initialize(BookBasicView book, SignInController signInController) {
         mojaKniha = book;
         this.signInController = signInController;
-        System.out.println("BookDetailsController initialized with SignInController: " + signInController);
         titleLabel.setText(book.getBook_name());
         genreLabel.setText("Genre: " + book.getGenre());
         publisherLabel.setText("Publisher: " + book.getPublisher());
@@ -115,12 +114,18 @@ public class BookDetailsController {
                     shippingOptionNumber = 10;
                 }
 
-                // Close the shipping options pop-up
+
                 shippingStage.close();
 
 
                 OrderRepository orderRepository = new OrderRepository();
                 orderRepository.insertOrder(signInController.getUsername(), mojaKniha.getId(), shippingOptionNumber);
+
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Success");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("Book successfully bought!");
+                successAlert.showAndWait();
             });
 
             vbox.getChildren().addAll(glsRadio, upsRadio, slovenskaPostaRadio, zasielkovnaRadio, odberNaMiesteRadio, confirmButton);
@@ -133,7 +138,11 @@ public class BookDetailsController {
 
 
         } else {
-            System.out.println("Prihlas sa");
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Sign up");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("You need to sign up to buy books ");
+            successAlert.showAndWait();
         }
     }
 

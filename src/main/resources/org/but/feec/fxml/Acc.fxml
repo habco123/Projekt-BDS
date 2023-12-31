@@ -23,7 +23,8 @@
 
         <VBox spacing="10">
             <Button fx:id="saveButton" onAction="#insertData" text="Insert Data" />
-            <Button fx:id="cartButton" onAction="#showCart" text="Cart" />
+            <Button fx:id="cartButton" onAction="#showCart" text="Order History" />
+            <Button fx:id="editButton" onAction="#editData" text="edit" />
         </VBox>
     </HBox>
 
