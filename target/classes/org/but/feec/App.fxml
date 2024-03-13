@@ -21,7 +21,7 @@
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Label layoutX="327.0" layoutY="256.0" text="Welcome to the online bookstore">
+                <Label layoutX="327.0" layoutY="256.0" text="Welcome to the bookstore application">
                     <font>
                         <Font size="30.0" />
                     </font>

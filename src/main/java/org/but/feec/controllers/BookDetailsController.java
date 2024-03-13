@@ -94,7 +94,7 @@ public class BookDetailsController {
             zasielkovnaRadio.setToggleGroup(shippingOptions);
             odberNaMiesteRadio.setToggleGroup(shippingOptions);
 
-            // Create a button to confirm the selection
+
             Button confirmButton = new Button("Confirm");
             confirmButton.setOnAction(e -> {
                 // Get the selected shipping option
@@ -103,15 +103,15 @@ public class BookDetailsController {
                 int shippingOptionNumber = 0;
 
                 if (glsRadio.isSelected()) {
-                    shippingOptionNumber = 6;
+                    shippingOptionNumber = 1;
                 } else if (upsRadio.isSelected()) {
-                    shippingOptionNumber = 7;
+                    shippingOptionNumber = 2;
                 } else if (slovenskaPostaRadio.isSelected()) {
-                    shippingOptionNumber = 8;
+                    shippingOptionNumber = 3;
                 } else if (zasielkovnaRadio.isSelected()) {
-                    shippingOptionNumber = 9;
+                    shippingOptionNumber = 4;
                 } else if (odberNaMiesteRadio.isSelected()) {
-                    shippingOptionNumber = 10;
+                    shippingOptionNumber = 5;
                 }
 
 
